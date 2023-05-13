@@ -93,7 +93,7 @@ public class PatientController implements Initializable {
         }
     }
     @FXML
-    void addInfo(MouseEvent event){
+    void rowClicked(MouseEvent event){
         Patient clickedPatient =  tableView.getSelectionModel().getSelectedItem();
         patientID.setText(String.valueOf(clickedPatient.getId()));
         patientName.setText(String.valueOf(clickedPatient.getName()));
