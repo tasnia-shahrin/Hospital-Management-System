@@ -39,12 +39,12 @@
       <TextField fx:id="ID" layoutX="104.0" layoutY="119.0" promptText="ID" />
       <TextField fx:id="diagnosis" layoutX="354.0" layoutY="80.0" promptText="diagnosis" />
       <TextField fx:id="medicines" layoutX="354.0" layoutY="119.0" promptText="medicines" />
-      <Button fx:id="home" layoutX="377.0" layoutY="284.0" mnemonicParsing="false" onAction="#goHome" text="Home">
+      <Button fx:id="home" layoutX="429.0" layoutY="310.0" mnemonicParsing="false" onAction="#goHome" text="Home" textFill="#830a0a">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Button>
-      <TableView fx:id="tableView" layoutX="29.0" layoutY="169.0" onMouseClicked="#rowClicked" prefHeight="200.0" prefWidth="317.0">
+      <TableView fx:id="tableView" layoutX="29.0" layoutY="169.0" prefHeight="200.0" prefWidth="317.0">
         <columns>
           <TableColumn fx:id="nameCol" prefWidth="75.0" text="Name" />
           <TableColumn fx:id="idCol" prefWidth="75.0" text="Id" />
@@ -52,6 +52,14 @@
             <TableColumn fx:id="medCol" prefWidth="75.0" text="Medicine" />
         </columns>
       </TableView>
-      <Button fx:id="add" layoutX="377.0" layoutY="175.0" mnemonicParsing="false" onAction="#addInfo" text="Add" />
+      <Button fx:id="add" layoutX="389.0" layoutY="175.0" mnemonicParsing="false" onAction="#addInfo" prefHeight="31.0" prefWidth="83.0" text="Add">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font></Button>
+      <Button fx:id="showlist" layoutX="389.0" layoutY="218.0" mnemonicParsing="false" onAction="#view" text="ShowList">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

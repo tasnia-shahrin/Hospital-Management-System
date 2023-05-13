@@ -1,6 +1,5 @@
 package com.example.oopproject;
 
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -12,7 +11,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 
-import java.io.IOException;
+import java.io.*;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -20,9 +19,6 @@ public class DoctorController implements Initializable {
 
     @FXML
     private Button add;
-
-    @FXML
-    private TextField speciality;
 
     @FXML
     private TableColumn<Doctor,String> designationCol;
@@ -40,62 +36,85 @@ public class DoctorController implements Initializable {
     private Button home;
 
     @FXML
-    private TableColumn<Doctor,Integer> idCol;
+    private TableColumn<Doctor, String> idCol;
 
     @FXML
-    private TableColumn<Doctor,String> nameCol;
+    private TableColumn<Doctor,String > nameCol;
+
+    @FXML
+    private Button showlist;
+
+    @FXML
+    private TextField speciality;
 
     @FXML
     private TableView<Doctor> tableView;
 
     @FXML
-
-    public void goHome(ActionEvent event) throws IOException {
+    void goHome(ActionEvent event) throws IOException {
         HelloApplication h = new HelloApplication();
         h.changeScene("afterLogin.fxml");
     }
 
-    @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        idCol.setCellValueFactory(new PropertyValueFactory<Doctor,Integer>("id"));
+        idCol.setCellValueFactory(new PropertyValueFactory<Doctor,String>("id"));
         nameCol.setCellValueFactory(new PropertyValueFactory<Doctor,String>("name"));
         designationCol.setCellValueFactory(new PropertyValueFactory<Doctor,String>("speciality"));
-        setupTable();
+        //setupTable();
     }
-
     @FXML
-    void addInfo(ActionEvent event) {
-        ObservableList<Doctor> currentTableData = tableView.getItems();
-        int currentPatientId = Integer.parseInt(doctorID.getText());
-        for (Doctor d : currentTableData) {
-            if (d.getId() == currentPatientId) {
-                d.setName(doctorName.getText());
-                d.setSpeciality(speciality.getText());
-                tableView.setItems(currentTableData);
-                tableView.refresh();
-                break;
-            }
+    void addInfo(ActionEvent event) throws IOException{
+        String name = this.doctorID.getText();
+        String id = this.doctorName.getText();
+        String speciality = this.speciality.getText();
+        String data = name + ","  + id + "," + speciality + "\n";
+        try {
+            BufferedWriter writer = new BufferedWriter(new FileWriter("doctor.txt", true));
+            writer.write(data);
+            writer.close();
+
+        } catch (IOException var11) {
+            var11.printStackTrace();
         }
+
     }
+
+
     @FXML
-    void rowClicked(MouseEvent event){
-        Doctor clickedDiagnosis =  tableView.getSelectionModel().getSelectedItem();
-        doctorID.setText(String.valueOf(clickedDiagnosis.getId()));
-        doctorName.setText(String.valueOf(clickedDiagnosis.getName()));
-        speciality.setText(String.valueOf(clickedDiagnosis.getSpeciality()));
+    void view(ActionEvent event) {
+        this.tableView.getItems().clear();
+
+        try {
+            BufferedReader br = new BufferedReader(new FileReader("doctor.txt"));
+
+            String line;
+            try {
+                while((line = br.readLine()) != null) {
+                    String[] parts = line.split(",");
+                    String name = parts[0];
+                    String id = parts[1];
+                    String speciality = parts[2];
+
+
+                    Doctor data = new Doctor(name,id,speciality);
+                    this.tableView.getItems().add(data);
+                }
+            } catch (Throwable var13) {
+                try {
+                    br.close();
+                } catch (Throwable var12) {
+                    var13.addSuppressed(var12);
+                }
+
+                throw var13;
+            }
+
+            br.close();
+        } catch (IOException var14) {
+            var14.printStackTrace();
+        }
+
     }
-    private void setupTable(){
-        Doctor d1 = new Doctor(122,"Adiba","surgeon");
-        Doctor d2 = new Doctor(132,"amira","gynecologist");
-        Doctor d3 = new Doctor(103,"tanha","Neurosurgeon");
-
-        tableView.getItems().addAll(d1);
-        tableView.getItems().addAll(d2);
-        tableView.getItems().addAll(d3);
-
     }
-}
-
-
 
 

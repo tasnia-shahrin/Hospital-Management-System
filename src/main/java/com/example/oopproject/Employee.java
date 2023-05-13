@@ -3,20 +3,16 @@ package com.example.oopproject;
 
 
 
-public class Doctor {
+public class Employee {
     private final String name;
-
     private final String id;
-    private final String speciality;
+    private final String designation;
 
 
-
-    public Doctor(String name, String id, String speciality) {
+    public Employee(String name, String id, String designation) {
         this.name = name;
-
         this.id = id;
-
-        this.speciality = speciality;
+        this.designation = designation;
 
     }
 
@@ -28,7 +24,7 @@ public class Doctor {
         return id;
     }
 
-    public String getSpeciality() {
-        return speciality;
+    public String getDesignation() {
+        return designation;
     }
 }

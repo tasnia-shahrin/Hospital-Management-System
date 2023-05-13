@@ -1,0 +1,4 @@
+anis,34,receptionist
+rekha,342,nurse
+nurse,23,rekah,
+fd,ada,afa,

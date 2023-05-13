@@ -24,22 +24,27 @@
             <Image url="@../../../img/istockphoto-1137949634-612x612.jpg" />
          </image>
       </ImageView>
-      <Button fx:id="doctor" layoutX="387.0" layoutY="48.0" mnemonicParsing="false" onAction="#doctorInfo" text="Doctor">
+      <Button fx:id="doctor" layoutX="387.0" layoutY="14.0" mnemonicParsing="false" onAction="#doctorInfo" prefHeight="51.0" prefWidth="142.0" text="Doctor">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
       </Button>
-      <Button fx:id="patient" layoutX="387.0" layoutY="138.0" mnemonicParsing="false" onAction="#patientInfo" text="Patient">
+      <Button fx:id="patient" layoutX="386.0" layoutY="84.0" mnemonicParsing="false" onAction="#patientInfo" prefHeight="51.0" prefWidth="142.0" text="Patient">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
       </Button>
-      <Button fx:id="home" layoutX="414.0" layoutY="331.0" mnemonicParsing="false" onAction="#goHome" text="Home">
+      <Button fx:id="home" layoutX="414.0" layoutY="331.0" mnemonicParsing="false" onAction="#goHome" text="Home" textFill="#c6102f">
          <font>
-            <Font size="19.0" />
+            <Font name="System Bold" size="19.0" />
          </font>
       </Button>
-      <Button fx:id="diagnosis" layoutX="387.0" layoutY="231.0" mnemonicParsing="false" onAction="#diagnosisInfo" text="Diagnosis">
+      <Button fx:id="diagnosis" layoutX="382.0" layoutY="157.0" mnemonicParsing="false" onAction="#diagnosisInfo" prefHeight="51.0" prefWidth="150.0" text="Diagnosis">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Button>
+      <Button fx:id="employee" layoutX="387.0" layoutY="238.0" mnemonicParsing="false" onAction="#employeeInfo" prefHeight="51.0" prefWidth="150.0" text="Employee">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>

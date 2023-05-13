@@ -1,59 +1,36 @@
 package com.example.oopproject;
 
+
+
+
 public class Diagnosis {
+    private final String name;
+    private final String id;
+    private final String diagnosis;
+    private final String medicine;
 
-        private int id;
-        private String name;
-        private String diagnosis;
-        private String medicines;
 
-        public Diagnosis( int id, String name,String diagnosis,String medicines) {
-            this.id = id;
-            this.name = name;
-            this.diagnosis=diagnosis;
-            this.medicines=medicines;
-        }
+    public Diagnosis(String name, String id, String diagnosis, String medicine) {
+        this.name = name;
+        this.id = id;
+        this.diagnosis = diagnosis;
+        this.medicine = medicine;
 
-        public int getId() {
-            return id;
-        }
-        public String getName() {
-            return name;
-        }
+    }
 
-        public void setId(int id) {
-            this.id = id;
-        }
+    public String getName() {
+        return name;
+    }
 
-        public void setName(String name) {
-            this.name = name;
-        }
+    public String getId() {
+        return id;
+    }
 
     public String getDiagnosis() {
         return diagnosis;
     }
 
-    public void setDiagnosis(String diagnosis) {
-        this.diagnosis = diagnosis;
+    public String getMedicine() {
+        return medicine;
     }
-
-    public String getMedicines() {
-        return medicines;
-    }
-
-    public void setMedicines(String medicines) {
-        this.medicines = medicines;
-    }
-
-    @Override
-        public String toString() {
-            return "Diagnosis{" +
-            "id=" + id +
-                    ", diagnosis='" + diagnosis + '\'' +
-                    ", name='" + name + '\'' +
-                    ", medicines='" + medicines + '\'' +
-                    '}';
-        }
-    }
-
-
+}
