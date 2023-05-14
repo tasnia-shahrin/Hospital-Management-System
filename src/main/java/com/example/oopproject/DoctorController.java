@@ -31,12 +31,16 @@ public class DoctorController implements Initializable {
 
     @FXML
     private TextField doctorName;
+    @FXML
+    private TextField appointment;
 
     @FXML
     private Button home;
 
     @FXML
     private TableColumn<Doctor, String> idCol;
+    @FXML
+    private TableColumn<Doctor,String> aCol;
 
     @FXML
     private TableColumn<Doctor,String > nameCol;
@@ -60,6 +64,7 @@ public class DoctorController implements Initializable {
         idCol.setCellValueFactory(new PropertyValueFactory<Doctor,String>("id"));
         nameCol.setCellValueFactory(new PropertyValueFactory<Doctor,String>("name"));
         designationCol.setCellValueFactory(new PropertyValueFactory<Doctor,String>("speciality"));
+        aCol.setCellValueFactory(new PropertyValueFactory<Doctor,String>("appointment"));
         //setupTable();
     }
     @FXML
@@ -67,7 +72,8 @@ public class DoctorController implements Initializable {
         String name = this.doctorID.getText();
         String id = this.doctorName.getText();
         String speciality = this.speciality.getText();
-        String data = name + ","  + id + "," + speciality + "\n";
+        String appointment = this.appointment.getText();
+        String data = name + ","  + id + "," + speciality +"," +appointment+ "\n";
         try {
             BufferedWriter writer = new BufferedWriter(new FileWriter("doctor.txt", true));
             writer.write(data);
@@ -94,9 +100,9 @@ public class DoctorController implements Initializable {
                     String name = parts[0];
                     String id = parts[1];
                     String speciality = parts[2];
+                    String appointment = parts[3];
 
-
-                    Doctor data = new Doctor(name,id,speciality);
+                    Doctor data = new Doctor(name,id,speciality,appointment);
                     this.tableView.getItems().add(data);
                 }
             } catch (Throwable var13) {

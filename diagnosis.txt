@@ -1,6 +1,3 @@
 sajib,121,cough,toffen
-zahin,45,cough,toffenadfa,23,ada,af
-adfa,23,ada,af
-adfa,23,ada,af
-adfa,23,ada,af
-candy,232,daa,242
+zahin,45,cough,toffen
+
